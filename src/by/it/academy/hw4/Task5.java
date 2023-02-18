@@ -1,16 +1,20 @@
 package by.it.academy.hw4;
 
-import java.util.Arrays;
+
 
 public class Task5 {
     public static void main(String[] args) {
-        int[] array = {2, 4, 7, 6, 5, 8};
-        Arrays.sort(array);
-        for (int x : array) {
-            if (x % 2 != 0 ) {
-                System.out.println("Minimal odd index = " + x);
-                break;
+        int[] array = {4, 6, 2, 6, 5, 1};
+        System.out.println(getMinimalNumber(array));
+    }
+
+    public static int getMinimalNumber(int[] array) {
+
+        int minimalNumber = array[0];
+        for (int i = 1; i < array.length; i = i + 2)
+            if (array[i] < minimalNumber) {
+                minimalNumber = array[i];
             }
-        }
+        return minimalNumber;
     }
 }
