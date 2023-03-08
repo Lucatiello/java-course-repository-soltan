@@ -1,5 +1,7 @@
 package by.it.academy.hw5;
 
+import java.util.Arrays;
+
 public class Phone {
     String number;
     String model;
@@ -13,8 +15,8 @@ public class Phone {
         return number;
     }
 
-    public String sendMessage(String number1, String number2, String number3) {
-        return "The message will be sent to the following numbers:" + "\n" + number1 + "\n" + number2 + "\n" + number3;
+    public String sendMessage(String ...number) {
+        return "The message will be sent to the following numbers:" + "\n" + Arrays.toString(number);
     }
 
     String receiveCall(String number, String name) {

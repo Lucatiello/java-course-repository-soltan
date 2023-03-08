@@ -11,7 +11,7 @@ public class Main {
         Phone phone2 = new Phone("+375291987543", "Nokia");
         Phone phone3 = new Phone("+375251852649", "Siemens", 2.25);
         System.out.println(phone1.receiveCall("Richard"));
-        System.out.println("Number " + phone1.receiveCall("+375334126587", "\nBoris "));
+        System.out.println("Number " + phone1.receiveCall("+375334126587", " Boris "));
         System.out.println(phone1.sendMessage("+375295154789", "+375255479874", "+375441268975"));
         System.out.println("Getter looks like this: \n" + phone1.getNumber() + " " + phone2.getNumber() + " " + phone3.getNumber());
         System.out.println("Constructor demo with two parameters " + phone2.number + " phone model " + phone2.model);
