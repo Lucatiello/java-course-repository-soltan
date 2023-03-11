@@ -2,14 +2,25 @@ package by.it.academy.hw6;
 
 public class Task4 {
     public static void main(String[] args) {
-        StringBuilder stringBuilder1 = createSomeString(3, 56);
-        System.out.println(stringBuilder1);
+        StringBuilder stringBuilder = createSomeString();
+        System.out.println(stringBuilder);
+        changeStringBuilder(stringBuilder);
     }
-        private static StringBuilder createSomeString(int a, int b){
-StringBuilder result = new StringBuilder();
-result.append(a).append(" + ").append(b).append(" равно ").append(a+b).append("\n")
-           .append(a).append(" - ").append(b).append(" равно ").append(a-b).append("\n")
-            .append(a).append(" * ").append(b).append(" равно ").append(a*b).append("\n");
-return result;
+
+    private static StringBuilder createSomeString() {
+        StringBuilder result = new StringBuilder();
+        result.append(3).append(" + ").append(56).append(" = ").append(3 + 56).append("\n")
+                .append(3).append(" - ").append(56).append(" = ").append(3 - 56).append("\n")
+                .append(3).append(" * ").append(56).append(" = ").append(3 * 56).append("\n");
+        return result;
+    }
+
+    static void changeStringBuilder(StringBuilder stringBuilder) {
+        int index;
+        while ((index = stringBuilder.indexOf("=")) != -1) {
+            stringBuilder.deleteCharAt(index);
+            stringBuilder.insert(index, "равно");
+        }
+        System.out.println(stringBuilder);
     }
 }

@@ -11,16 +11,16 @@ public class Task2 {
         String max = null;
         int num = 0;
         while (matcher.find()) {
-            int start=matcher.start();
-            int end=matcher.end();
-            int numLength = str1.substring(start,end).length();
-            System.out.println("Найдено совпадение " + str1.substring(start,end) + " с "+ start + " по " + (end-1) + " позицию");
+            int start = matcher.start();
+            int end = matcher.end();
+            int numLength = str1.substring(start, end).length();
+            System.out.println("Найдено совпадение " + str1.substring(start, end) + " с " + start + " по " + (end - 1) + " позицию");
             if (numLength > num) {
                 num = numLength;
-                max = str1.substring(start,end);
-                }
+                max = str1.substring(start, end);
             }
-        System.out.println("Максимальное значение повторяющихся чисел:" + max);
         }
+        System.out.println("Максимальное значение повторяющихся чисел:" + max);
     }
+}
 

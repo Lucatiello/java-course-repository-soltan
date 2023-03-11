@@ -13,14 +13,15 @@ public class Task5 {
     }
 
     static String resultTwoString(String text) {
-        Pattern p = Pattern.compile("Object-oriented programming");
-        String[] arrayString = text.split("Object-oriented programming");
+        String regex = "Object-oriented programming";
+        Pattern pattern = Pattern.compile(regex);
+        String[] arrayString = text.split(regex);
         for (int i = 1; i < arrayString.length; i++) {
-            arrayString[i] = "Object-oriented programming" + arrayString[i];
+            arrayString[i] = regex + arrayString[i];
         }
-        for (int i = 1; i < arrayString.length; i++) {
-            if (i % 2 == 0) {
-                arrayString[i] = arrayString[i].replaceAll(p.pattern(), "OOP");
+        for (int i = 0; i < arrayString.length; i = i + 2) {
+            arrayString[i] = arrayString[i].replaceAll(pattern.pattern(), "OOP");
+            {
             }
         }
         StringBuilder textBuilder = new StringBuilder();
