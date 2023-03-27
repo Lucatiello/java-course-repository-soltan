@@ -6,35 +6,41 @@ import java.util.List;
 
 public class Bouquet {
     final List<Flower> flowers;
-    public Bouquet(){
+
+    public Bouquet() {
         flowers = new ArrayList<>();
     }
- public void addFlowersInBouquet(Flower flower){
+
+    public void addFlowersInBouquet(Flower flower) {
         flowers.add(flower);
- }
- public void printNameOfFlowers(){
-        for (Flower flower : flowers){
+    }
+
+    public void printNameOfFlowers() {
+        for (Flower flower : flowers) {
             System.out.println(flower.getName() + " ");
         }
- }
- public void printColorOfFlowers(){
-        for (Flower flower : flowers){
+    }
+
+    public void printColorOfFlowers() {
+        for (Flower flower : flowers) {
             System.out.println(flower.getColor() + " ");
         }
- }
- public void printPriceOfBouquet(){
+    }
+
+    public void printPriceOfBouquet() {
         int priceOfAllFlowers = 0;
-        for (Flower flower : flowers){
+        for (Flower flower : flowers) {
             priceOfAllFlowers += flower.getPrice();
         }
-     System.out.println(priceOfAllFlowers);
- }
- public void printBestBeforeDay(){
+        System.out.println(priceOfAllFlowers);
+    }
+
+    public void printBestBeforeDay() {
         int bestBeforeDay = 0;
-        for (Flower flower : flowers){
+        for (Flower flower : flowers) {
             if (flower.getBestBeforeDay() > bestBeforeDay)
                 bestBeforeDay = flower.getBestBeforeDay();
         }
-     System.out.println(bestBeforeDay);
- }
+        System.out.println(bestBeforeDay);
+    }
 }

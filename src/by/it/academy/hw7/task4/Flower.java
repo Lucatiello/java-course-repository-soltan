@@ -6,7 +6,6 @@ public class Flower {
     private final int bestBeforeDay;
     private final double priceForOneFlower;
 
-
     public Flower(String name, String color, int bestBeforeDay, double priceForOneFlower) {
         this.name = name;
         this.color = color;
@@ -17,6 +16,7 @@ public class Flower {
     public String getName() {
         return name;
     }
+
     public String getColor() {
         return color;
     }
@@ -28,6 +28,6 @@ public class Flower {
     public double getPrice() {
         return priceForOneFlower;
     }
-    }
+}
 
 
