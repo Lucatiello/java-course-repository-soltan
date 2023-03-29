@@ -36,7 +36,12 @@ class Student {
     }
 
     public String getInfo() {
-        return ("Student's name: " + getName() + " " + getLastName() + ", Course number: " + getCourseNumber() + ", Group Name: " + getGroupName() + ", Average Rating " + getAverageRating() + ", " + "Stipend is " + getStipend());
+        return ("Student's name: " + getName() +
+                " " + getLastName() + ", Course number: "
+                + getCourseNumber() + ", Group Name: "
+                + getGroupName() + ", Average Rating "
+                + getAverageRating() + ", " + "Stipend is "
+                + getStipend());
     }
 
     public double getStipend() {

@@ -1,7 +1,7 @@
 package by.it.academy.hw7.task4;
 
 public class FlowerTest {
-    public static void main(String[] args) { //task-1
+    public static void main(String[] args) {
         Flower tulip = new Flower("Tulip", "White", 5, 3);
         Flower rose = new Flower("Rose", "red", 7, 5);
         Flower violet = new Flower("Violet", "violet", 4, 8);

@@ -14,7 +14,13 @@ public class GraduateStudent extends Student {
 
     @Override
     public String getInfo() {
-        return "Graduate student's name: " + getName() + " " + getLastName() + ", Course number: " + getCourseNumber() + ", Group Name: " + getGroupName() + ", Average Rating " + getAverageRating() + ", Scientific Work " + getScientificWork() + ", " + "Stipend is " + getStipend();
+        return "Graduate student's name: " + getName() + " "
+                + getLastName() + ", Course number: "
+                + getCourseNumber() + ", Group Name: "
+                + getGroupName() + ", Average Rating "
+                + getAverageRating() + ", Scientific Work "
+                + getScientificWork() + ", " + "Stipend is "
+                + getStipend();
     }
 
     @Override
