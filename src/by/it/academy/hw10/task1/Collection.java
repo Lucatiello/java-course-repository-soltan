@@ -1,4 +1,4 @@
-package by.it.academy.hw10;
+package by.it.academy.hw10.task1;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,7 +16,7 @@ public class Collection {
         return resultSet;
     }
 
-    public static void printSet(String name, Set set) {
+    public static <T> void printSet(String name, Set<T> set) {
         System.out.println(" " + name + " " + set);
     }
 }

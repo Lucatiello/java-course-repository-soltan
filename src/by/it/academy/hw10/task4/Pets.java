@@ -1,4 +1,4 @@
-package by.it.academy.hw10;
+package by.it.academy.hw10.task4;
 
 public class Pets {
     String name;

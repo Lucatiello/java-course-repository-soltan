@@ -1,5 +1,4 @@
-package by.it.academy.hw10;
-
+package by.it.academy.hw10.task4;
 
 import java.util.ArrayList;
 import java.util.Comparator;
