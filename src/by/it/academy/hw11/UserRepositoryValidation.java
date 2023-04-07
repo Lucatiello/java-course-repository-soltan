@@ -4,6 +4,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRepositoryValidation {
+    private final UserRepository userRepository;
+
+    public UserRepositoryValidation(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public void validLogin(String login) throws WrongLoginException {
         Pattern pattern = Pattern.compile("\\w{5,20}");
@@ -20,21 +25,24 @@ public class UserRepositoryValidation {
             throw new WrongPasswordException("Password does not meet requirements");
         }
     }
-
-    public void loginExist(UserRepository userRepository, String login) throws UserNotExistException {
-        for (User userTest : userRepository.getUserList()) {
-
-            if (!userTest.getLogin().contains(login)) {
-                throw new UserNotExistException("User with this login does not exist");
-            }
+    public void checkUserNotExist(String login) throws UserNotExistException{
+        if (userRepository.existUserByLogin(login)){
+            throw new UserNotExistException("User not exist with login: " + login);
         }
     }
 
-    public void passwordExist(UserRepository userRepository, String password) throws WrongPasswordException {
-        for (User userTest : userRepository.getUserList()) {
-            if (!userTest.getPassword().contains(password)) {
-                throw new WrongPasswordException("Password entered incorrectly");
-            }
+    public void loginAndPasswordExist(String login, String password) throws UserNotExistException {
+        if (!(userRepository.existUserByLoginAndPassword(login, password))) {
+            throw new UserNotExistException("User not found");
         }
+    }
+    public void createUser(String login, String password) throws Exception{
+        validLogin(login);
+        checkUserNotExist(login);
+        validPassword(password);
+
+        User user = new User(login, password);
+        userRepository.addUser(user);
     }
 }
+
