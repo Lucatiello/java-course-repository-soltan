@@ -1,4 +1,4 @@
-package by.it.academy.hw11;
+package by.it.academy.hw16;
 
 
 import java.util.ArrayList;
@@ -28,4 +28,24 @@ public class UserRepository {
         }
         return false;
    }
+   public User getUser(String login, String password){
+        for (User user : userList) {
+            if (user.getLogin().equals(login) && user.getPassword().equals(password)) {
+                return user;
+            }
+        }
+        return null;
+   }
+
+   public List<User> userList(){
+        return userList;
+   }
+
+    @Override
+    public String toString() {
+        return "UserRepository {" +
+                "users =" + userList +
+                '}';
+    }
 }
+
