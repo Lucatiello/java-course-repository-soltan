@@ -21,22 +21,19 @@ public class Main {
         }
         ArrayList<Person> newPeople = new ArrayList<>();
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
-            newPeople = ((ArrayList<Person>) ois.readObject());
+            Object obj = ois.readObject();
+            if (obj instanceof ArrayList) {
+                newPeople = (ArrayList<Person>) obj;
+            }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
         for (Person p : newPeople)
             System.out.println(p);
-
-        people.sort(Comparator.comparing(Person::getSurname));
-        System.out.println("Sort by surname");
+        people.sort(Comparator.comparing(Person::getSurname).thenComparing(Person::getName));
+        System.out.println("Sort by surname and name");
         for (Person person : people) {
-            System.out.println("Name: " + person.getName() + " Surname: " + person.getSurname() + " Age: " + person.getAge());
-        }
-        people.sort(Comparator.comparing(Person::getName));
-        System.out.println("\nSort by name:");
-        for (Person person : people) {
-            System.out.println("Name: " + person.getName() + " Surname: " + person.getSurname() + " Age: " + person.getAge());
+            System.out.println("Name " + person.getName() + " Surname " + person.getSurname() + " Age " + person.getAge());
         }
     }
 }

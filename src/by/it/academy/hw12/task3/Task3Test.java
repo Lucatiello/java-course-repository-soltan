@@ -33,9 +33,14 @@ public class Task3Test {
         try (FileInputStream fileInputStream = new FileInputStream(binary)) {
             byte[] digitByte = new byte[30];
             fileInputStream.read(digitByte);
+            float average = 0;
+            float sum = 0;
             for (byte r : digitByte) {
                 System.out.println(r);
+                sum += r;
+                average = sum / 30;
             }
+            System.out.println("Average: " + average);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
