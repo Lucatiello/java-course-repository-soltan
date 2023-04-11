@@ -13,7 +13,7 @@ public class Main {
         LocalDateTime dateEnd;
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         UserRepository userRepository = new UserRepository();
-        UserRepositoryValidation userRepositoryValidation = new UserRepositoryValidation(userRepository);
+        UserRepositoryService userRepositoryValidation = new UserRepositoryService(userRepository);
         while (true) {
             printMenu();
             int selectNumberMenu = Integer.parseInt(input());
