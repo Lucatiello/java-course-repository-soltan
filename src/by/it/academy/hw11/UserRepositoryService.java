@@ -3,10 +3,10 @@ package by.it.academy.hw11;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UserRepositoryValidation {
+public class UserRepositoryService {
     private final UserRepository userRepository;
 
-    public UserRepositoryValidation(UserRepository userRepository) {
+    public UserRepositoryService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
