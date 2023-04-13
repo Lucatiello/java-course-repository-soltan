@@ -17,7 +17,7 @@ public class Task1Test {
         String shortestString = col.stream().min(Comparator.comparing(String::length)).orElse(null);
         System.out.println("Shortest string: " + shortestString);
         List<String> wordString = col.stream().filter(str -> str.matches("\\b\\w+\\b")).collect(Collectors.toList());
-        System.out.println("Word strings: " + wordString);
+        System.out.println("Words strings: " + wordString);
         List<String> words = col.stream().flatMap(str -> Arrays.stream(str.split("\\s+")))
                 .map(str -> str.replaceAll("\\W", "")).distinct().collect(Collectors.toList());
         System.out.println("Words: " + words);
