@@ -14,31 +14,26 @@ public class Main {
         people.add(new Person("Connor", "O'brien", 32));
         people.add(new Person("Ricky", "Starks", 31));
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
-        oos.writeObject(people);
+            oos.writeObject(people);
             System.out.println("File has been written");
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
         ArrayList<Person> newPeople = new ArrayList<>();
-        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))){
-            newPeople = ((ArrayList<Person>)ois.readObject());
-        }
-        catch (Exception ex){
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
+            Object obj = ois.readObject();
+            if (obj instanceof ArrayList) {
+                newPeople = (ArrayList<Person>) obj;
+            }
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-        for(Person p : newPeople)
+        for (Person p : newPeople)
             System.out.println(p);
-
-        people.sort(Comparator.comparing(Person :: getSurname));
-        System.out.println("Sort by surname");
-        for (Person person : people){
-            System.out.println("Name: " + person.getName() + " Surname: " + person.getSurname() + " Age: " + person.getAge());
-        }
-        people.sort(Comparator.comparing(Person :: getName));
-        System.out.println("\nSort by name:");
-        for (Person person : people){
-            System.out.println("Name: " + person.getName() + " Surname: " + person.getSurname() + " Age: " + person.getAge());
+        people.sort(Comparator.comparing(Person::getSurname).thenComparing(Person::getName));
+        System.out.println("Sort by surname and name");
+        for (Person person : people) {
+            System.out.println("Name " + person.getName() + " Surname " + person.getSurname() + " Age " + person.getAge());
         }
     }
 }

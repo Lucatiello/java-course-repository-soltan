@@ -1,8 +1,11 @@
 package by.it.academy.hw12.task4;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Person implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 123456789L;
     private final String name;
     private final String surname;
     private final int age;
