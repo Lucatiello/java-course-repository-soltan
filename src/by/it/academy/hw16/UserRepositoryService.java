@@ -36,7 +36,7 @@ public class UserRepositoryService {
     }
 
     public void loginAndPasswordExist(String login, String password) throws UserNotExistException {
-        if (!userRepository.existUserByLoginAndPassword(login, password)) {
+        if (userRepository.existUserByLoginAndPassword(login, password)) {
             LocalDateTime lastAuthorizationDate = LocalDateTime.now();
             User user = userRepository.getUser(login, password);
             user.setLastAuthorizationDate(lastAuthorizationDate);
