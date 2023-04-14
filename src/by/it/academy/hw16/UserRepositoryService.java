@@ -40,6 +40,7 @@ public class UserRepositoryService {
             LocalDateTime lastAuthorizationDate = LocalDateTime.now();
             User user = userRepository.getUser(login, password);
             user.setLastAuthorizationDate(lastAuthorizationDate);
+        } else {
             throw new UserNotExistException("User not found with login: " + login);
         }
     }
