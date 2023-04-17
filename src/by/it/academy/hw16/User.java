@@ -22,10 +22,12 @@ public class User {
     public String getPassword() {
         return password;
     }
-    public LocalDateTime getRegistrationDate(){
+
+    public LocalDateTime getRegistrationDate() {
         return registrationDate;
     }
-    public void setLastAuthorizationDate(LocalDateTime lastAuthorizationDate){
+
+    public void setLastAuthorizationDate(LocalDateTime lastAuthorizationDate) {
         this.lastAuthorizationDate = lastAuthorizationDate;
     }
 

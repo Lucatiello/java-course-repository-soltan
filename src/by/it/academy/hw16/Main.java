@@ -1,7 +1,5 @@
 package by.it.academy.hw16;
 
-
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -15,7 +13,7 @@ public class Main {
         LocalDateTime dateEnd;
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         UserRepository userRepository = new UserRepository();
-        UserRepositoryValidation userRepositoryValidation = new UserRepositoryValidation(userRepository);
+        UserRepositoryService userRepositoryValidation = new UserRepositoryService(userRepository);
         while (true) {
             printMenu();
             int selectNumberMenu = Integer.parseInt(input());
@@ -45,13 +43,12 @@ public class Main {
                     System.out.println(userList);
                 }
                 case 4 -> {
-                        System.out.println("Goodbye");
-                        System.exit(0);
-                    }
+                    System.out.println("Goodbye");
+                    System.exit(0);
                 }
             }
         }
-
+    }
 
     public static void printMenu() {
         System.out.println("Menu");

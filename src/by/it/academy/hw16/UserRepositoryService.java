@@ -6,11 +6,10 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-public class UserRepositoryValidation {
+public class UserRepositoryService {
     private final UserRepository userRepository;
 
-    public UserRepositoryValidation(UserRepository userRepository) {
+    public UserRepositoryService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -37,10 +36,11 @@ public class UserRepositoryValidation {
     }
 
     public void loginAndPasswordExist(String login, String password) throws UserNotExistException {
-        if (!userRepository.existUserByLoginAndPassword(login, password)) {
+        if (userRepository.existUserByLoginAndPassword(login, password)) {
             LocalDateTime lastAuthorizationDate = LocalDateTime.now();
             User user = userRepository.getUser(login, password);
             user.setLastAuthorizationDate(lastAuthorizationDate);
+        } else {
             throw new UserNotExistException("User not found with login: " + login);
         }
     }
@@ -65,5 +65,3 @@ public class UserRepositoryValidation {
         return applyUsers;
     }
 }
-
-
